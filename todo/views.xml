@@ -1,0 +1,37 @@
+<odoo>
+    <record id="view_tree_todo" model="ir.ui.view">
+        <field name="name">view.tree.todo</field>
+        <field name="model">todo.app</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="description"/>
+                <field name="status"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_form_todo" model="ir.ui.view">
+        <field name="name">view.form.todo</field>
+        <field name="model">todo.app</field>
+        <field name="arch" type="xml">
+            <form>
+            <sheet>
+                <group>
+                    <field name="name" string="Nombre"/>
+                    <field name="description" string="Descripción"/>
+                    <field name="status" string="Esztado de tarea"/>
+                </group>
+            </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_view_todo" model="ir.actions.act_window">
+        <field name="name">Lista de Tareas</field>
+        <field name="res_model">todo.app</field>
+        <field name="view_mode">tree,form</field> 
+    </record>
+
+    <menuitem id="menu_todo" parent="" action="todo.action_view_todo" />
+</odoo>
